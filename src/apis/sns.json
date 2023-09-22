@@ -1,0 +1,28 @@
+{
+    "sns": [
+        {
+            "id": 1,
+            "name": "youtube",
+            "img": "./img/sns/sns01.png",
+            "url": "https://www.youtube.com/c/TVING_official"
+        },
+        {
+            "id": 2,
+            "name": "instagram",
+            "img": "./img/sns/sns02.png",
+            "url": "https://www.instagram.com/tving.official/"
+        },
+        {
+            "id": 3,
+            "name": "twitter",
+            "img": "./img/sns/sns03.png",
+            "url": "https://twitter.com/tvingdotcom"
+        },
+        {
+            "id": 4,
+            "name": "facebook",
+            "img": "./img/sns/sns04.png",
+            "url": "https://www.facebook.com/CJTVING/"
+        }
+    ]
+}
