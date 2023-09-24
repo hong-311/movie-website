@@ -1,0 +1,85 @@
+{
+    "brand": [
+        {
+            "id": 1,
+            "name": "MNET",
+            "url": "https://www.mnetplus.world/ko/"
+        },
+        {
+            "id": 2,
+            "name": "MWAVE",
+            "url": "https://shop.mwave.me/"
+        },
+        {
+            "id": 3,
+            "name": "tvN",
+            "url": "https://tvn.cjenm.com/ko/"
+        },
+        {
+            "id": 4,
+            "name": "tvN STORY",
+            "url": "https://tvn.cjenm.com/ko/tvNstory-main/"
+        },
+        {
+            "id": 5,
+            "name": "tvN DRAMA",
+            "url": "https://tvn.cjenm.com/ko/tvNDRAMA_main/"
+        },
+        {
+            "id": 6,
+            "name": "tvN SHOW",
+            "url": "https://tvn.cjenm.com/ko/tvNshow-main/"
+        },
+        {
+            "id": 7,
+            "name": "OCN",
+            "url": "https://ocn.cjenm.com/ko/"
+        },
+        {
+            "id": 8,
+            "name": "OCNmovies",
+            "url": "https://ocn.cjenm.com/ko/"
+        },
+        {
+            "id": 9,
+            "name": "OCNthrills",
+            "url": "https://ocn.cjenm.com/ko/"
+        },
+        {
+            "id": 10,
+            "name": "중화TV",
+            "url": "https://zhtv.cjenm.com/ko/"
+        },
+        {
+            "id": 11,
+            "name": "UXN",
+            "url": "https://uxn.cjenm.com/ko/"
+        },
+        {
+            "id": 12,
+            "name": "CATCH ON",
+            "url": "https://www.catchon.co.kr/mp/index.co"
+        },
+        {
+            "id": 13,
+            "name": "O'live",
+            "url": "https://tvn.cjenm.com/ko/"
+        },
+        {
+            "id": 14,
+            "name": "XTM",
+            "url": "https://tvn.cjenm.com/ko/"
+        },
+        {
+            "id": 15,
+            "name": "tooniverse",
+            "url": "https://tooniverse.cjenm.com/ko/"
+        },
+        {
+            "id": 16,
+            "name": "tvnD",
+            "url": "https://tvn.cjenm.com/ko/"
+        }
+        
+    ]
+}

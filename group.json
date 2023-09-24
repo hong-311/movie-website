@@ -1,0 +1,75 @@
+{
+    "group": [
+        {
+            "id": 1,
+            "name": "CJ주식회사",
+            "url": "https://www.cj.net/"
+        },
+        {
+            "id": 2,
+            "name": "CJ ENM 엔터테인먼트부문",
+            "url": "https://www.cjenm.com/ko/"
+        },
+        {
+            "id": 3,
+            "name": "CJ CGV",
+            "url": "https://www.cgv.co.kr/"
+        },
+        {
+            "id": 4,
+            "name": "CJ제일제당(식품)",
+            "url": "https://www.cj.co.kr/kr/index/"
+        },
+        {
+            "id": 5,
+            "name": "CJ프레시웨이",
+            "url": "https://www.cjfreshway.com/index.jsp"
+        },
+        {
+            "id": 6,
+            "name": "CJ푸드빌",
+            "url": "https://www.cjfoodville.co.kr/main.asp"
+        },
+        {
+            "id": 7,
+            "name": "CJ엠디원",
+            "url": "http://www.cjmd1.co.kr/main/main.aspx"
+        },
+        {
+            "id": 8,
+            "name": "CJ제일제당(바이오)",
+            "url": "https://www.cj.co.kr/kr/about/business/bio"
+        },
+        {
+            "id": 9,
+            "name": "CJ ENM 커머스부문",
+            "url": "https://display.cjonstyle.com/p/homeTab/main?hmtabMenuId=003147&rPIC=homeonstyle"
+        },
+        {
+            "id": 10,
+            "name": "CJ대한통운",
+            "url": "https://www.cjlogistics.com/ko/main"
+        },
+        {
+            "id": 11,
+            "name": "CJ텔레닉스",
+            "url": "https://www.cjtelenix.com/intro.asp"
+        },
+        {
+            "id": 12,
+            "name": "CJ올리브영",
+            "url": "https://www.oliveyoung.co.kr/store/main/main.do?oy=0"
+        },
+        {
+            "id": 13,
+            "name": "CJ대한통운(건설)",
+            "url": "http://www.cjenc.co.kr/kr/Default.asp"
+        },
+        {
+            "id": 14,
+            "name": "CJ올리브네트윅스",
+            "url": "https://www.cjolivenetworks.co.kr/"
+        }
+        
+    ]
+}
