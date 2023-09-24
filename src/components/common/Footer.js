@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import SNS from '../../apis/sns.json'; //내장json파일 호출
+import BRAND from '../../apis/brand.json';
 
 //스타일컴포넌트 생성
 const FooterBlock = styled.footer`
@@ -24,6 +25,22 @@ width: 100%; padding: 0 60px;
         display: flex;
         li{
             margin-left: 20px;
+            select {
+                font-size: 18px; font-weight: bold; color: rgb(163, 163, 163);
+                background-color: black;
+                border-style: none;
+                appearance: none;
+                
+            }
+            option{
+                font-size: 18px; font-weight: bold; color: rgb(163, 163, 163);
+                background-color: rgb(32, 32, 32);
+                height: 50px;
+                    &:hover {
+                        background-color: rgb(50, 50, 50);
+                    }
+                
+            }
             a{
                 font-size: 18px; font-weight: bold; color: rgb(163, 163, 163);
             }
@@ -64,7 +81,7 @@ width: 100%; padding: 0 60px;
 `;
 
 //footer파트 컴포넌트
-function Footer() {
+function Footer({brand}) {
     //텍스트 배열데이터
     const footerMenus = ['고객센터','이용약관','개인정보처리방침','청소년 보호정책','법적고지','이벤트','인재채용'];
     const footerTexts = [
@@ -73,6 +90,13 @@ function Footer() {
         ['고객문의 바로가기','대표메일 : tving@cj.net','고객센터 : 1670-1525 (평일/주말 09시~18시, 공휴일 휴무)'],
         ['ENM 시청자 상담실 (편성 문의 및 시청자 의견) : 080-080-0780','Mnet 고객센터(방송편성문의) : 1855-1631']
     ];
+
+    const [Selected, setSelected] = useState("");
+
+    const handleSelect = (e) => {
+      setSelected(e.target.value);
+    };
+    
 
     return (
         <FooterBlock>
@@ -83,7 +107,14 @@ function Footer() {
                 </div>
                 <div className="family">
                     <ul>
-                        <li><a href="#!">브랜드 바로가기 +</a></li>
+                        <li><a href={BRAND.brand.url} target="_blank" rel="noopener noreferrer">
+                        <select onChange={handleSelect} value={Selected} size={7}>
+                            <option value="none" >브랜드 바로가기 +</option>
+                            {BRAND.brand.map((brand) => (
+                                <option key={brand.id} value={brand.name}>{brand.name}</option>
+                            ))}
+                        </select></a>
+                            </li>
                         <li><a href="#!">그룹 계열사 바로가기 +</a></li>
                     </ul>
                 </div>
