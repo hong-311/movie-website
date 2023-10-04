@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import SNS from '../../apis/sns.json'; //내장json파일 호출
 import BRAND from '../../apis/brand.json';
+import GROUP from '../../apis/group.json';
 
 //스타일컴포넌트 생성
 const FooterBlock = styled.footer`
@@ -91,13 +92,49 @@ function Footer({brand}) {
         ['ENM 시청자 상담실 (편성 문의 및 시청자 의견) : 080-080-0780','Mnet 고객센터(방송편성문의) : 1855-1631']
     ];
 
-    const [Selected, setSelected] = useState("");
+    const [selected, setSelected] = useState("");
+    const [brandOpen, setBrandOpen] = useState(false);
+    const [groupOpen, setGroupOpen] = useState(false);
+    const brandSelectRef = useRef(null);
+    const groupSelectRef = useRef(null);
+  
+    const handleSelect = (e, type) => {
+        const selectedValue = e.target.value;
+        setSelected(selectedValue);
 
-    const handleSelect = (e) => {
-      setSelected(e.target.value);
+        if (type === "brand") {
+            const selectedBrand = BRAND.brand.find((brand) => brand.name === selectedValue);
+            if (selectedBrand && selectedBrand.url) {
+              window.open(selectedBrand.url, "_blank");
+            }
+          } else if (type === "group") {
+            const selectedGroup = GROUP.group.find((group) => group.name === selectedValue);
+            if (selectedGroup && selectedGroup.url) {
+              window.open(selectedGroup.url, "_blank");
+            }
+          }
+        };
+  
+      // 외부 영역 클릭 시 셀렉트 박스 닫기
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        (brandSelectRef.current && !brandSelectRef.current.contains(event.target) && brandOpen) ||
+        (groupSelectRef.current && !groupSelectRef.current.contains(event.target) && groupOpen)
+      ) {
+        setBrandOpen(false);
+        setGroupOpen(false);
+      }
+    }
+
+    // 이벤트 추가
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // 컴포넌트가 언마운트될 때 이벤트 제거
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-    
-
+  }, [brandOpen, groupOpen]);
     return (
         <FooterBlock>
             <div className="f_top">
@@ -107,15 +144,46 @@ function Footer({brand}) {
                 </div>
                 <div className="family">
                     <ul>
-                        <li><a href={BRAND.brand.url} target="_blank" rel="noopener noreferrer">
-                        <select onChange={handleSelect} value={Selected} size={7}>
-                            <option value="none" >브랜드 바로가기 +</option>
-                            {BRAND.brand.map((brand) => (
-                                <option key={brand.id} value={brand.name}>{brand.name}</option>
-                            ))}
-                        </select></a>
-                            </li>
-                        <li><a href="#!">그룹 계열사 바로가기 +</a></li>
+                        <li>
+                            <a href="#!" onClick={() => setBrandOpen(!brandOpen)}> 브랜드 바로가기 +
+                            <div
+                                ref={brandSelectRef} 
+                                className="select-container"
+                            >
+                                <select
+                                     onChange={(e) => handleSelect(e, "brand")} value={selected}
+                                    size={7}
+                                    style={{ display: brandOpen ? 'block' : 'none'}}
+                                >
+                                    {BRAND.brand.map((brand) => (
+                                        <option key={brand.id} value={brand.name}>
+                                            {brand.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </a>
+                      </li>
+                        <li>
+                            <a href="#!" onClick={() => setGroupOpen(!groupOpen)}>그룹 계열사 바로가기 +
+                            <div
+                                ref={groupSelectRef}
+                                className="select-container"
+                            >
+                                <select
+                                     onChange={(e) => handleSelect(e, "group")} value={selected}
+                                    size={7}
+                                    style={{ display: groupOpen ? 'block' : 'none' }}
+                                >
+                                    {GROUP.group.map((group) => (
+                                        <option key={group.id} value={group.name}>
+                                            {group.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </a>
+                        </li>
                     </ul>
                 </div>
             </div>
