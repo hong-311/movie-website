@@ -8,6 +8,10 @@ import GROUP from '../../apis/group.json';
 const FooterBlock = styled.footer`
 width: 100%; padding: 0 60px; 
 
+@media screen and (max-width: 768px) {
+    padding: 0 30px;
+  }
+
 .f_top{
     width: 100%; height: 60px; line-height: 60px;
     border-bottom: 1px solid #222;
@@ -25,26 +29,32 @@ width: 100%; padding: 0 60px;
     ul{
         display: flex;
         li{
-            margin-left: 20px;
+            margin-left: 50px;
+            font-size: 18px; font-weight: bold; color: rgb(163, 163, 163);
+        
             select {
-                font-size: 18px; font-weight: bold; color: rgb(163, 163, 163);
                 background-color: black;
-                border-style: none;
+                border-radius: 5px;
                 appearance: none;
-                
+ 
             }
             option{
                 font-size: 18px; font-weight: bold; color: rgb(163, 163, 163);
+                text-align: left;
+                width: 8.9rem;
+                padding: 8px 15px;
                 background-color: rgb(32, 32, 32);
-                height: 50px;
+                height: 40px;
                     &:hover {
-                        background-color: rgb(50, 50, 50);
+                        background-color: rgb(43, 43, 43);
                     }
-                
             }
-            a{
-                font-size: 18px; font-weight: bold; color: rgb(163, 163, 163);
-            }
+            ::-webkit-scrollbar {
+                width: 7px; /* 수직 스크롤바의 너비 */
+              }
+            ::-webkit-scrollbar-thumb {
+                background: rgb(76, 75, 77) /* 스크롤바 핸들 배경색 */
+              }
         }
     }
 }
@@ -135,6 +145,9 @@ function Footer({brand}) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [brandOpen, groupOpen]);
+
+  
+  
     return (
         <FooterBlock>
             <div className="f_top">
@@ -144,14 +157,13 @@ function Footer({brand}) {
                 </div>
                 <div className="family">
                     <ul>
-                        <li>
-                            <a href="#!" onClick={() => setBrandOpen(!brandOpen)}> 브랜드 바로가기 +
+                        <li onClick={() => setBrandOpen(!brandOpen)}> 브랜드 바로가기 +
                             <div
                                 ref={brandSelectRef} 
                                 className="select-container"
                             >
                                 <select
-                                     onChange={(e) => handleSelect(e, "brand")} value={selected}
+                                    onChange={(e) => handleSelect(e, "brand")} value={selected}
                                     size={7}
                                     style={{ display: brandOpen ? 'block' : 'none'}}
                                 >
@@ -162,10 +174,8 @@ function Footer({brand}) {
                                     ))}
                                 </select>
                             </div>
-                        </a>
                       </li>
-                        <li>
-                            <a href="#!" onClick={() => setGroupOpen(!groupOpen)}>그룹 계열사 바로가기 +
+                        <li onClick={() => setGroupOpen(!groupOpen)}>그룹 계열사 바로가기 +
                             <div
                                 ref={groupSelectRef}
                                 className="select-container"
@@ -182,7 +192,6 @@ function Footer({brand}) {
                                     ))}
                                 </select>
                             </div>
-                        </a>
                         </li>
                     </ul>
                 </div>
