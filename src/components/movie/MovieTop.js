@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { CiHeart, CiExport } from "react-icons/ci";
+import { CiExport } from "react-icons/ci";
+import { PiHeartStraightLight, PiHeartStraightFill } from "react-icons/pi";
 
 const MovieTopBlock = styled.div`
     width: 100%; height: 700px; margin-bottom: 50px;
@@ -95,6 +96,10 @@ function MovieTop({ movietop }) {
     const infoArrays = [year, type, caption, time, drm];
     const logoText = logo.substr(0,4);
 
+    const [like, setLike] = useState(false);
+
+    const onToggle = () => setLike(!like);
+
     return (
         <MovieTopBlock>
             <img src={poster} className="contentsBg" alt="컨텐츠 포스터" />
@@ -120,8 +125,8 @@ function MovieTop({ movietop }) {
                     <ul className="btn">
                         <li className="view_btn"><a href="#!">▶ 1화 시청하기</a></li>
                         <li className="bookmark_btn">
-                            <a href="#!">
-                                <CiHeart />
+                            <a href="#!" onClick={() => onToggle()}>
+                              {like ? <PiHeartStraightFill/> : <PiHeartStraightLight /> }  
                                 찜
                             </a>
                         </li>
