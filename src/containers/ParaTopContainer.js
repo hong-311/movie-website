@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getParaTop } from '../modules/paratop';
 import ParaTop from '../components/paramount/ParaTop';
+import LoadingSpinner from '../components/common/LoadingSpinner';
+
 
 function ParaTopContainer({ paraTopId }) {
     const { data, loading, error } = useSelector(
@@ -20,7 +22,7 @@ function ParaTopContainer({ paraTopId }) {
 
     
 
-    if(loading) return <div>로딩중...</div>;
+    if(loading) return <LoadingSpinner />; 
     if(error) return <div>에러발생!</div>;
     if(!data) return null;
     return <ParaTop paratop={data} />;
