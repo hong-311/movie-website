@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { CiHeart, CiExport } from "react-icons/ci";
-
+import { CiExport } from "react-icons/ci";
+import { PiHeartStraightLight, PiHeartStraightFill } from "react-icons/pi";
 const TvingBestBlock = styled.div`
     width: 100%; height: 700px; margin-bottom: 50px;
     background-repeat: no-repeat; 
@@ -85,6 +85,10 @@ function TvingBest({ tvingbest }) {
 
     const infoArrays = [age, time, type, broadcasting, season];
 
+    const [like, setLike] = useState(false);
+
+    const onToggle = () => setLike(!like);
+
     return (
         <TvingBestBlock>
             <img src={poster} className="contentsBg" alt="컨텐츠 포스터" />
@@ -106,8 +110,8 @@ function TvingBest({ tvingbest }) {
                     <ul className="btn">
                         <li className="view_btn"><a href="#!">▶ 1화 시청하기</a></li>
                         <li className="bookmark_btn">
-                            <a href="#!">
-                                <CiHeart />
+                            <a href="#!" onClick={() => onToggle()}>
+                              {like ? <PiHeartStraightFill/> : <PiHeartStraightLight /> }  
                                 찜
                             </a>
                         </li>
