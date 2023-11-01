@@ -21,7 +21,6 @@ function MovieTopListContainer() {
     },[dispatch]);
 
     //로딩중, 성공, 실패로 따로 프레젠테이셔널 컴포넌트 지정
-    //!data : 데이터만 없을 수 있어서 따로 프레젠테이셔널 컴포넌트(엠프티데이터)가 있어야 함
     if(loading && !data) return <LoadingList />;
     if(error || !data) return <Error />;
     return <MovieTopList movietops={data} />;
