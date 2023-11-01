@@ -5,7 +5,7 @@ import styled from 'styled-components';
 //스타일컴포넌트
 const HeaderBlock = styled.header`
     position: fixed; top: 0; left: 0; z-index: 5000;
-    width: 100%; height: 90px; padding: 0 60px; 
+    width: 100%; height: 70px; padding: 0 40px 10px 40px;
     background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
     display: flex; align-items: center;
 
@@ -19,14 +19,30 @@ const HeaderBlock = styled.header`
     h1{ margin-right: 50px; }
     h1 img{ 
         position: relative; top: 5px;
-        height: 40px; 
+        height: 29px; 
     }
     ul{ display: flex; }
-    li{ font-size: 20px; margin-right: 40px; }
-    li:first-child a::before{
+        
+    li {
+        font-size: 15px;
+        margin-right: 30px;
+    }
+
+    /* 두 번째, 세 번째, 네 번째 li 태그에만 margin-top 적용 */
+    li:nth-child(n+2) {
+        margin-top: 7.5px;
+    }
+
+    li:first-child {
+        display: flex;
+        align-items: center;
+    }
+
+    li:first-child a::before {
         content: url("https://www.tving.com/img/icon_menu_live.svg");
-        position: relative; top: 3px;
-        margin-right: 10px;
+        position: relative;
+        top: 4px;
+        margin-right: 6px;
     }
 `;
 
@@ -34,14 +50,6 @@ const HeaderBlock = styled.header`
 function Header() {
     //useRef() : 특정 돔을 선택하기 위해 사용하는 Hooks
     const header = useRef(); //header태그 요소 선택
-
-    //페이지들이 초기실행 될때마다 스크롤 처리
-    //아래 방법으로 적으면 렌더링하면서 계속 DOM을 탐색해서 React특성상 성능에 문제가 발생
-    /*
-    useEffect(()=>{
-        window.addEventListener('scroll',handleScroll);
-    },[]); 
-    */
 
     //성능 개선을 위해서 스크롤 이벤트에 Timer를 둬서, 이벤트가 발생된 후 Timer 초기화해서 성능 지연 방지해야 함
     useEffect(()=>{
@@ -59,7 +67,6 @@ function Header() {
         let windowTop = window.scrollY;
 
         if(windowTop > 50){
-            //classList : 문서객체의 클래스관련을 관리하는 바닐라자바스크립트의 속성
             header.current.classList.add('active');
         }else{
             header.current.classList.remove('active');
