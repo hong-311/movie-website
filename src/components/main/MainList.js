@@ -1,68 +1,79 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-
 //스와이퍼 처리
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
 import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 
 //스타일 컴포넌트 생성
 const MainBannerBlock = styled.main`
-width: 100%;
-.swiper-button-next:after, .swiper-button-prev:after{
-    color: #fff; opacity: 0.5;
-    transition: 0.2s;
-}
-.swiper-button-next:hover:after, .swiper-button-prev:hover:after{
-    opacity: 1;
-}
-.swiper-slide{ position: relative; }
-p{
-    position: absolute; left: 80px; bottom: 200px; z-index: 5500;
-    font-size: 24px; font-weight: 500;
-}
-a{
-    position: absolute; right: 80px; bottom: 150px; z-index: 5500;
-    padding: 20px 50px; border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 5px; background-color: rgba(255,255,255,0.15);
-    transition: 0.3s;
-}
-a:hover{
-    border: 1px solid rgba(255,255,255,1); 
-    background-color: rgba(255,255,255,0.3);
-}
-.swiper-pagination{
-    width: auto; left: 105px; bottom: 150px;
-}
-.swiper-pagination-bullet{
-    width: 12px; height: 12px;
-    background-color: #fff; opacity: 0.2;
-}
-.swiper-pagination-bullet-active{
-    background-color: #fff; opacity: 1;
-}
-.swiper-playpause{
-    position: absolute; z-index: 300;
-    left: 80px; bottom: 151px;
-    width: 20px; height: 20px;
-    cursor: pointer;
-    span{
-        display: block; width: 12px; height: 14px; margin: 3px 4px;
-        &.active{ display: none; }
+    width: 100%;
+    .swiper-button-next:after, .swiper-button-prev:after{
+        color: #fff; opacity: 0.5; font-size: 28px;
+        transition: 0.2s;
     }
-    .btn_pause{
-        border-left: 4px solid #fff; border-right: 4px solid #fff;
+    .swiper-button-next:hover:after, .swiper-button-prev:hover:after{
+        opacity: 1;
     }
-    .btn_play{
-        background-image: url(https://www.tving.com/img/icon_play_arow.svg);
-        background-repeat: no-repeat; background-position: center;
+    .swiper-slide{ position: relative; }
+    .swiper-slide img {
+        width: 100%; 
+        height: auto;
     }
-}
+    .swiper-slide::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px; /* 블러 효과의 높이 조절*/
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+        pointer-events: none;
+    }
+    p{
+        position: absolute; left: 80px; bottom: 150px; z-index: 5500;
+        font-size: 15px; font-weight: 500; 
+    }
+    a{
+        position: absolute; right: 50px; bottom: 120px; z-index: 5500;
+        padding: 15px 40px; border: 1px solid rgba(255,255,255,0.5);
+        border-radius: 5px; background-color: rgba(255,255,255,0.15);
+        transition: 0.3s;
+    }
+    a:hover{
+        border: 1px solid rgba(255,255,255,1); 
+        background-color: rgba(255,255,255,0.3);
+    }
+    .swiper-pagination{
+        width: auto; left: 105px; bottom: 120px; 
+    }
+    .swiper-pagination-bullet{
+        width: 12px; height: 12px; 
+        background-color: #fff; opacity: 0.2;
+    }
+    .swiper-pagination-bullet-active{
+        background-color: #fff; opacity: 1; 
+    }
+    .swiper-playpause{
+        position: absolute; z-index: 300;
+        left: 80px; bottom: 120px;
+        width: 20px; height: 20px;
+        cursor: pointer;
+        span{
+            display: block; width: 12px; height: 14px; margin: 3px 4px;
+            &.active{ display: none; }
+        }
+        .btn_pause{
+            border-left: 4px solid #fff; border-right: 4px solid #fff;
+        }
+        .btn_play{
+            background-image: url(https://www.tving.com/img/icon_play_arow.svg);
+            background-repeat: no-repeat; background-position: center;
+        }
+    }
 `;
 
 //메인이미지 슬라이더를 표시하는 프레젠테이셔널 컴포넌트
@@ -79,7 +90,6 @@ function MainList({ mains }) {
 
     //초기 실행시 메인이미지 스와이퍼를 담을 예정
     useEffect(() => {
-        //ref를 통해서 선택해도 선택이 잘 안됨 => 아래와 같이 자바스크립트로 직접적으로 선택
         const swiperinstance = document.querySelector('.mainSwiper').swiper;
         setSwiper(swiperinstance);
     },[]);

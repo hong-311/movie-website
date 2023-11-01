@@ -20,33 +20,39 @@ const TvingBestBlock = styled.div`
         display: flex; justify-content: space-between; align-items: flex-start;
     }
     .contents_left{
-        width: 650px; padding: 20px;
-        h2{ margin-bottom: 20px; }
+        width: 650px; padding: 10px;
+        h2{ 
+            margin-bottom: 20px;
+            img {
+                height: 70px;
+            }
+        }
         .info{
-            display: flex;  margin-bottom: 40px;
+            display: flex;  margin-bottom: 30px;
             li{ 
-                padding: 2px 7px 4px; border: 1px solid hsla(0,0%,100%,0.7);
-                border-radius: 5px; margin-right: 10px;
-                color: hsla(0,0%,100%,0.7); font-size: 18px;
+                padding: 1px 4px 2px; border: 1px solid hsla(0,0%,100%,0.4);
+                border-radius: 5px; margin-right: 8px;
+                color: hsla(0,0%,100%,0.7); font-size: 15px;
+                font-weight: bold;
             }
         }
         .btn{
-            display: flex; height: 80px;  margin-bottom: 40px;
+            display: flex; height: 80px;  margin-bottom: 20px;
             li{ 
                 margin-right: 40px; text-align: center;
                 &.view_btn{
                     a{
-                        display: block; width: 300px; height: 80px; 
+                        display: block; width: 240px; height: 80px; 
                         border-radius: 5px; background-color: #fff;
                         color: #000; line-height: 80px;
-                        font-size: 22px; font-weight: bold;
+                        font-size: 18px; font-weight: bold; 
                     }
                 }
                 &.bookmark_btn, &.share_btn{
                     a{
-                        color: #fff; font-size: 20px;
+                        color: #fff; font-size: 15px;  font-weight: bold;
                         svg{
-                            display: block; width: 42px; height: 42px;
+                            display: block; width: 38px; height: 40px;
                             margin-bottom: 3px;
                         }
                     }
@@ -55,25 +61,28 @@ const TvingBestBlock = styled.div`
 
         }
         .people{
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             li{ 
                 width: 100%; height: 30px; line-height: 30px;
-                font-size: 20px; color: hsla(0,0%,100%,0.7); 
+                font-size: 15px; color: hsla(0,0%,100%,0.7); 
                 overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+                font-weight: bold;
 
-                .title{ margin-right: 20px; color: hsla(0,0%,100%,0.7); }
+                .title{ 
+                    margin-right: 15px; color: hsla(0,0%,100%,0.7);  font-weight: bold; }
             }
         }
         p{ 
             width: 100%; height: 90px; 
             line-height: 30px; text-align: justify;
-            font-size: 20px; color: hsla(0,0%,100%,0.7); 
+            font-size: 15px; color: hsla(0,0%,100%,0.7); 
             overflow: hidden; display: -webkit-box;
             -webkit-line-clamp: 3;  -webkit-box-orient: vertical;
+            font-weight: bold;
         }
     }
     .poster_wrap{
-        width: 350px; margin-right: 60px;
+        width: 270px; margin-right: 40px;
         border-radius: 5px; overflow: hidden;
         img{ display: block; width: 100%; }
     }
@@ -96,11 +105,6 @@ function TvingBest({ tvingbest }) {
                 <div className="contents_left">
                     <h2><img src={logo} alt="컨텐츠 로고" height="100" /></h2>
                     <ul className="info">
-                        {/* <li style={{display: age || "none"}}>{age}</li>
-                        <li style={{display: time || "none"}}>{time}</li>
-                        <li style={{display: type || "none"}}>{type}</li>
-                        <li style={{display: broadcasting || "none"}}>{broadcasting}</li>
-                        <li style={{display: season || "none"}}>{season}</li> */}
                         {
                             infoArrays.map((infoArray, index) => (
                                 <li key={index} style={{display: infoArray || "none"}}>{infoArray}</li>

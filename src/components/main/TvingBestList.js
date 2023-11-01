@@ -12,29 +12,29 @@ import styled from 'styled-components';
 
 //스타일 컴포넌트 생성
 const TvingBestBlock = styled.section`
-position: relative; top: -100px; z-index: 3000;
-padding: 20px 0 0 60px; margin-bottom: 50px;
-.swiper, swiper-container{ padding-top: 20px; }
-.swiper-slide{
-    position: relative; transition: ease-in transform 0.2s;
-    &:hover{
-        transform: translateY(-15px);
+    position: relative; top: -100px; z-index: 3000;
+    padding: 30px 0 0 60px; margin-bottom: 50px;
+    .swiper, swiper-container{ padding-top: 20px; }
+    .swiper-slide{
+        position: relative; transition: ease-in transform 0.2s;
+        &:hover{
+            transform: translateY(-15px);
+        }
     }
-}
-.swiper-slide .img_wrap{
-    width: 100%; border-radius: 5px; overflow: hidden;
-    margin-bottom: 10px;
-}
-.swiper-slide img{
-    display: block; width: 100%;
-}
-.swiper-slide figcaption{ 
-    font-size: 18px; color: rgba(255,255,255,0.87);
-}
-.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
-    opacity: 0;
-}
-.swiper-button-next:after, .swiper-button-prev:after{ color: #fff; }
+    .swiper-slide .img_wrap{
+        width: 100%; border-radius: 5px; overflow: hidden;
+        margin-bottom: 10px;
+    }
+    .swiper-slide img{
+        display: block; width: 100%;
+    }
+    .swiper-slide figcaption{ 
+        font-size: 15px; color: rgba(255,255,255,0.87);
+    }
+    .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
+        opacity: 0;
+    }
+    .swiper-button-next:after, .swiper-button-prev:after{ color: #fff; }
 `;
 
 
