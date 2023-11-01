@@ -5,6 +5,6 @@ import axios from "axios";
 
 //2. axios를 통해서 데이터를 얻는 함수 내보내기
 export const getMains = async () => {
-    const response = await axios.get('http://localhost:4000/main');
-    return response.data;
+    const response = await axios.get('http://ehfpal311.dothome.co.kr/data.json');
+    return response.data.main;
 }
