@@ -4,46 +4,82 @@ import styled from 'styled-components';
 
 //스타일컴포넌트
 const HeaderBlock = styled.header`
-    position: fixed; top: 0; left: 0; z-index: 5000;
-    width: 100%; height: 70px; padding: 0 40px 10px 40px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
-    display: flex; align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5000;
+  width: 100%;
+  height: 90px;
+  padding: 0 60px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  align-items: center;
+  transition: background 0.3s;
 
-    transition: background 0.3s;
+  /* 스크롤시 active 상태 */
+  &.active {
+    background: rgba(0, 0, 0, 0.9);
+  }
 
-    /* 스크롤시 active 상태 */
-    &.active{
-        background: rgba(0,0,0,0.9);
+  h1 {
+    margin-right: 50px;
+  }
+
+  h1 img {
+    position: relative;
+    top: 5px;
+    height: 40px;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    color: rgb(40, 40, 40);
+    font-size: 20px;
+    margin-right: 40px;
+
+    &:hover {
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 15px;
+    height: 50px;
+
+    h1 img {
+      height: 30px;
     }
 
-    h1{ margin-right: 50px; }
-    h1 img{ 
-        position: relative; top: 5px;
-        height: 29px; 
+    ul {
+      align-items: flex-start;
     }
-    ul{ display: flex; }
-        
+
     li {
-        font-size: 15px;
-        margin-right: 30px;
+      margin-right: 30px;
+      margin-bottom: 0;
+      text-align: left;
+      white-space: nowrap;
+      overflow: visible;
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 512px) {
+    h1 img {
+      height: 20px;
+      margin-bottom: 8px;
+      margin-right: -30px;
     }
 
-    /* 두 번째, 세 번째, 네 번째 li 태그에만 margin-top 적용 */
-    li:nth-child(n+2) {
-        margin-top: 7.5px;
+    li {
+      margin-right: 10px;
+      margin-bottom: 0;
+      font-size: 12px;
     }
-
-    li:first-child {
-        display: flex;
-        align-items: center;
-    }
-
-    li:first-child a::before {
-        content: url("https://www.tving.com/img/icon_menu_live.svg");
-        position: relative;
-        top: 4px;
-        margin-right: 6px;
-    }
+  }
 `;
 
 //header컴포넌트
